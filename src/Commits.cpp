@@ -11,8 +11,4 @@ using namespace std;
 
 int main() {
 	cout << "Gabor committed" << endl; // prints !!!Hello World!!!
-
-	int a;
-	cin >> a;
-	return 0;
 }
