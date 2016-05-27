@@ -11,5 +11,6 @@ using namespace std;
 
 int main() {
 	cout << "Gabor committed" << endl; // prints !!!Hello World!!!
+        cout << "Gergo committed" << endl;
 	return 0;
 }
