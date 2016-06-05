@@ -1,0 +1,6 @@
+Before you push to upstream:
+0. Clone the project (it is needed only first time).
+1. modify the files or add new files.
+2. Commit changes
+3. Pull from upstream and resolve conflicts if any.
+4. Push to upstream.
