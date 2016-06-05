@@ -12,5 +12,11 @@ using namespace std;
 int main() {
 	cout << "Gabor committed" << endl; // prints !!!Hello World!!!
 	cout << "Test" << endl;
+    cout << "Gergo committed" << endl;
+	return 0;
+}Gergo committed" << endl;
+	return 0;
+}
+rgo committed" << endl;
 	return 0;
 }
