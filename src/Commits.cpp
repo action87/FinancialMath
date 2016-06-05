@@ -14,9 +14,4 @@ int main() {
 	cout << "Test" << endl;
     cout << "Gergo committed" << endl;
 	return 0;
-}Gergo committed" << endl;
-	return 0;
-}
-rgo committed" << endl;
-	return 0;
 }
