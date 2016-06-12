@@ -7,11 +7,9 @@
 //============================================================================
 
 #include <iostream>
-using namespace std;
 
-int main() {
-	cout << "Gabor committed" << endl; // prints !!!Hello World!!!
-	cout << "Test" << endl;
-    cout << "Gergo committed" << endl;
-	return 0;
+void TestCommits() {
+	std::cout << "Gabor committed" << std::endl; // prints !!!Hello World!!!
+	std::cout << "Test" << std::endl;
+    std::cout << "Gergo committed" << std::endl;
 }
