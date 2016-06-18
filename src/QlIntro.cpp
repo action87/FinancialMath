@@ -126,6 +126,59 @@ void daycountIntroduction()
   std::cout << "Yearfraction using Actual360: " << dc.yearFraction(today, todayAdvanced) << std::endl;
 }
 
+void scheduleIntroduction()
+{
+  //  The schedule class can be used to generate sequences of coupon dates
+  //Given the practice and ISDA conventions, it can be constructed with a
+  //lot of parameters. To make instantiation easier, Quantlib uses the 
+  //Named Parameter Idiom, so you don't have to remember the order of the
+  //parameters. Example (explanation later):
+  
+  Date startDate(30, September, 2009);
+  Date endDate(15, Jun, 2012);
+
+  Schedule mySched = MakeSchedule()
+    .from(startDate)
+    .to(endDate)
+    .withFrequency(Semiannual)
+    .withCalendar(Japan())
+    .withConvention(BusinessDayConvention(Following))
+    .endOfMonth(true)
+    .forwards();
+
+  //  This schedule will start at the startDate and then
+  //using the Japan calendar and Following business day convention
+  //will go forwards semiannually. By setting endOfMonth true, if the
+  //effective date is the end of month, the schedule dates will be enforced
+  //to be end month as well. 
+  //  Other rules than Forward are also available:
+  //  - Backward: from termination date to effective date
+  //  - Forward: from effective date to termination date
+  //  - Zero: no intermediate dates between effective and termination date
+  //  - ThirdWednesday: Except for the termination and effective, all dates
+  //      are on the third Wednesday of their month
+  //  - Twentieth: Except for the effective date, all dates are on the twentieth
+  //      of their month (used for CDS schedules in emerging markets)
+  //  - Twentieth: Except for the effective date, all dates are on the twentieth
+  //      of an IMM month (used for CDS schedules)
+  
+  //Some useful member functions:
+  //  Size size(): returns number of dates
+  //  Date previousDate(const Date& refDate): previous date in the schedule
+  //  Date nextDate(const DatE& refDate): next date in the schedule
+  //  const vector<Date>& dates(): vector of dates in the schedule
+  
+  Date refDate(3, Aug, 2010);
+
+  std::cout << std::endl << "============= Schedules =============" << std::endl;
+  std::cout << "Reference Date: " << refDate << std::endl;
+  std::cout << "Next Date: " << mySched.nextDate(refDate) << std::endl;
+  std::cout << "Previous Date: " << mySched.previousDate(refDate) << std::endl;
+  std::cout << "The whole schedule: " << std::endl;
+  for (const auto& date: mySched.dates())
+    std::cout << "  " << date << std::endl;
+}
+
 int main()
 {
   dateIntroduction();
@@ -135,6 +188,8 @@ int main()
   businessDayConventionIntroduction();
 
   daycountIntroduction();
+
+  scheduleIntroduction();
 
   return 0;
 }
