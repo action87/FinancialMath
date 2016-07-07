@@ -126,7 +126,7 @@ void daycountIntroduction()
   std::cout << "Yearfraction using Actual360: " << dc.yearFraction(today, todayAdvanced) << std::endl;
 }
 
-int main()
+void QlIntro()
 {
   dateIntroduction();
 
@@ -136,5 +136,4 @@ int main()
 
   daycountIntroduction();
 
-  return 0;
 }
